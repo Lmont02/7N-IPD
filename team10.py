@@ -7,8 +7,8 @@
 ####
 
 team_name = 'Fish Friends' # Only 10 chars displayed.
-strategy_name = 'The name the team gives to this strategy'
-strategy_description = 'How does this strategy decide?'
+strategy_name = 'Betray if our score is better, and colluide if last 3 is colluide.Otherwise betray'
+strategy_description = 'Betray first round. If our score is better than the players, we betray. However if their last three in their history is colliude, then we colliude. Otherwise we betray.'
     
 def move(my_history, their_history, my_score, their_score):
     ''' Arguments accepted: my_history, their_history are strings.
@@ -28,10 +28,11 @@ def move(my_history, their_history, my_score, their_score):
     
     if my_score > their_score:
         return 'b'
-    if their_history[-10:] is 'bbb':
+    if their_history[-10:] is 'ccc':
         return 'c'
     else:
         return 'b'
+
 
     
 def test_move(my_history, their_history, my_score, their_score, result):
